@@ -201,5 +201,5 @@ var _API_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "api.proto",
+	Metadata: "pbf/update/api.proto",
 }
