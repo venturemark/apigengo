@@ -25,12 +25,27 @@ const (
 // of the legacy proto package is being used.
 const _ = proto.ProtoPackageIsVersion4
 
+// SearchI is the input to search metrics. That is looking up datapoints
+// associated with an update. Below is an example JSON representation showing a
+// filter query meant to fetch all metric objects associated to the specified
+// update.
+//
+//     {
+//         "filter": {
+//             "property": [
+//                 {
+//                     "update_id": "upd-j3o45"
+//                 }
+//             ]
+//         }
+//     }
+//
 type SearchI struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Filter *SearchI_Filter `protobuf:"bytes,1,opt,name=filter,proto3" json:"filter,omitempty"`
 }
 
 func (x *SearchI) Reset() {
@@ -65,11 +80,11 @@ func (*SearchI) Descriptor() ([]byte, []int) {
 	return file_pbf_metric_search_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *SearchI) GetName() string {
+func (x *SearchI) GetFilter() *SearchI_Filter {
 	if x != nil {
-		return x.Name
+		return x.Filter
 	}
-	return ""
+	return nil
 }
 
 type SearchO struct {
@@ -77,7 +92,8 @@ type SearchO struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Message string `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	Filter *SearchO_Filter `protobuf:"bytes,1,opt,name=filter,proto3" json:"filter,omitempty"`
+	Result *SearchO_Result `protobuf:"bytes,2,opt,name=result,proto3" json:"result,omitempty"`
 }
 
 func (x *SearchO) Reset() {
@@ -112,9 +128,370 @@ func (*SearchO) Descriptor() ([]byte, []int) {
 	return file_pbf_metric_search_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *SearchO) GetMessage() string {
+func (x *SearchO) GetFilter() *SearchO_Filter {
 	if x != nil {
-		return x.Message
+		return x.Filter
+	}
+	return nil
+}
+
+func (x *SearchO) GetResult() *SearchO_Result {
+	if x != nil {
+		return x.Result
+	}
+	return nil
+}
+
+type SearchI_Filter struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Chunking *SearchI_Filter_Chunking   `protobuf:"bytes,1,opt,name=chunking,proto3" json:"chunking,omitempty"`
+	Operator []string                   `protobuf:"bytes,2,rep,name=operator,proto3" json:"operator,omitempty"`
+	Property []*SearchI_Filter_Property `protobuf:"bytes,3,rep,name=property,proto3" json:"property,omitempty"`
+}
+
+func (x *SearchI_Filter) Reset() {
+	*x = SearchI_Filter{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_pbf_metric_search_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SearchI_Filter) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SearchI_Filter) ProtoMessage() {}
+
+func (x *SearchI_Filter) ProtoReflect() protoreflect.Message {
+	mi := &file_pbf_metric_search_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SearchI_Filter.ProtoReflect.Descriptor instead.
+func (*SearchI_Filter) Descriptor() ([]byte, []int) {
+	return file_pbf_metric_search_proto_rawDescGZIP(), []int{0, 0}
+}
+
+func (x *SearchI_Filter) GetChunking() *SearchI_Filter_Chunking {
+	if x != nil {
+		return x.Chunking
+	}
+	return nil
+}
+
+func (x *SearchI_Filter) GetOperator() []string {
+	if x != nil {
+		return x.Operator
+	}
+	return nil
+}
+
+func (x *SearchI_Filter) GetProperty() []*SearchI_Filter_Property {
+	if x != nil {
+		return x.Property
+	}
+	return nil
+}
+
+type SearchI_Filter_Chunking struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Pointer string `protobuf:"bytes,1,opt,name=pointer,proto3" json:"pointer,omitempty"`
+	Perpage string `protobuf:"bytes,2,opt,name=perpage,proto3" json:"perpage,omitempty"`
+}
+
+func (x *SearchI_Filter_Chunking) Reset() {
+	*x = SearchI_Filter_Chunking{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_pbf_metric_search_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SearchI_Filter_Chunking) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SearchI_Filter_Chunking) ProtoMessage() {}
+
+func (x *SearchI_Filter_Chunking) ProtoReflect() protoreflect.Message {
+	mi := &file_pbf_metric_search_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SearchI_Filter_Chunking.ProtoReflect.Descriptor instead.
+func (*SearchI_Filter_Chunking) Descriptor() ([]byte, []int) {
+	return file_pbf_metric_search_proto_rawDescGZIP(), []int{0, 0, 0}
+}
+
+func (x *SearchI_Filter_Chunking) GetPointer() string {
+	if x != nil {
+		return x.Pointer
+	}
+	return ""
+}
+
+func (x *SearchI_Filter_Chunking) GetPerpage() string {
+	if x != nil {
+		return x.Perpage
+	}
+	return ""
+}
+
+type SearchI_Filter_Property struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	MetricId  string `protobuf:"bytes,1,opt,name=metric_id,json=metricId,proto3" json:"metric_id,omitempty"`
+	Timestamp string `protobuf:"bytes,2,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	UpdateId  string `protobuf:"bytes,3,opt,name=update_id,json=updateId,proto3" json:"update_id,omitempty"`
+}
+
+func (x *SearchI_Filter_Property) Reset() {
+	*x = SearchI_Filter_Property{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_pbf_metric_search_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SearchI_Filter_Property) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SearchI_Filter_Property) ProtoMessage() {}
+
+func (x *SearchI_Filter_Property) ProtoReflect() protoreflect.Message {
+	mi := &file_pbf_metric_search_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SearchI_Filter_Property.ProtoReflect.Descriptor instead.
+func (*SearchI_Filter_Property) Descriptor() ([]byte, []int) {
+	return file_pbf_metric_search_proto_rawDescGZIP(), []int{0, 0, 1}
+}
+
+func (x *SearchI_Filter_Property) GetMetricId() string {
+	if x != nil {
+		return x.MetricId
+	}
+	return ""
+}
+
+func (x *SearchI_Filter_Property) GetTimestamp() string {
+	if x != nil {
+		return x.Timestamp
+	}
+	return ""
+}
+
+func (x *SearchI_Filter_Property) GetUpdateId() string {
+	if x != nil {
+		return x.UpdateId
+	}
+	return ""
+}
+
+type SearchO_Filter struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Chunking *SearchO_Filter_Chunking `protobuf:"bytes,1,opt,name=chunking,proto3" json:"chunking,omitempty"`
+}
+
+func (x *SearchO_Filter) Reset() {
+	*x = SearchO_Filter{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_pbf_metric_search_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SearchO_Filter) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SearchO_Filter) ProtoMessage() {}
+
+func (x *SearchO_Filter) ProtoReflect() protoreflect.Message {
+	mi := &file_pbf_metric_search_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SearchO_Filter.ProtoReflect.Descriptor instead.
+func (*SearchO_Filter) Descriptor() ([]byte, []int) {
+	return file_pbf_metric_search_proto_rawDescGZIP(), []int{1, 0}
+}
+
+func (x *SearchO_Filter) GetChunking() *SearchO_Filter_Chunking {
+	if x != nil {
+		return x.Chunking
+	}
+	return nil
+}
+
+type SearchO_Result struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Datapoint []int64 `protobuf:"varint,1,rep,packed,name=datapoint,proto3" json:"datapoint,omitempty"`
+	MetricId  string  `protobuf:"bytes,2,opt,name=metric_id,json=metricId,proto3" json:"metric_id,omitempty"`
+	Timestamp string  `protobuf:"bytes,3,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	UpdateId  string  `protobuf:"bytes,4,opt,name=update_id,json=updateId,proto3" json:"update_id,omitempty"`
+}
+
+func (x *SearchO_Result) Reset() {
+	*x = SearchO_Result{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_pbf_metric_search_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SearchO_Result) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SearchO_Result) ProtoMessage() {}
+
+func (x *SearchO_Result) ProtoReflect() protoreflect.Message {
+	mi := &file_pbf_metric_search_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SearchO_Result.ProtoReflect.Descriptor instead.
+func (*SearchO_Result) Descriptor() ([]byte, []int) {
+	return file_pbf_metric_search_proto_rawDescGZIP(), []int{1, 1}
+}
+
+func (x *SearchO_Result) GetDatapoint() []int64 {
+	if x != nil {
+		return x.Datapoint
+	}
+	return nil
+}
+
+func (x *SearchO_Result) GetMetricId() string {
+	if x != nil {
+		return x.MetricId
+	}
+	return ""
+}
+
+func (x *SearchO_Result) GetTimestamp() string {
+	if x != nil {
+		return x.Timestamp
+	}
+	return ""
+}
+
+func (x *SearchO_Result) GetUpdateId() string {
+	if x != nil {
+		return x.UpdateId
+	}
+	return ""
+}
+
+type SearchO_Filter_Chunking struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Pointer string `protobuf:"bytes,1,opt,name=pointer,proto3" json:"pointer,omitempty"`
+	Perpage string `protobuf:"bytes,2,opt,name=perpage,proto3" json:"perpage,omitempty"`
+}
+
+func (x *SearchO_Filter_Chunking) Reset() {
+	*x = SearchO_Filter_Chunking{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_pbf_metric_search_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SearchO_Filter_Chunking) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SearchO_Filter_Chunking) ProtoMessage() {}
+
+func (x *SearchO_Filter_Chunking) ProtoReflect() protoreflect.Message {
+	mi := &file_pbf_metric_search_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SearchO_Filter_Chunking.ProtoReflect.Descriptor instead.
+func (*SearchO_Filter_Chunking) Descriptor() ([]byte, []int) {
+	return file_pbf_metric_search_proto_rawDescGZIP(), []int{1, 0, 0}
+}
+
+func (x *SearchO_Filter_Chunking) GetPointer() string {
+	if x != nil {
+		return x.Pointer
+	}
+	return ""
+}
+
+func (x *SearchO_Filter_Chunking) GetPerpage() string {
+	if x != nil {
+		return x.Perpage
 	}
 	return ""
 }
@@ -124,12 +501,55 @@ var File_pbf_metric_search_proto protoreflect.FileDescriptor
 var file_pbf_metric_search_proto_rawDesc = []byte{
 	0x0a, 0x17, 0x70, 0x62, 0x66, 0x2f, 0x6d, 0x65, 0x74, 0x72, 0x69, 0x63, 0x2f, 0x73, 0x65, 0x61,
 	0x72, 0x63, 0x68, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x06, 0x6d, 0x65, 0x74, 0x72, 0x69,
-	0x63, 0x22, 0x1d, 0x0a, 0x07, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x49, 0x12, 0x12, 0x0a, 0x04,
-	0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65,
-	0x22, 0x23, 0x0a, 0x07, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x4f, 0x12, 0x18, 0x0a, 0x07, 0x6d,
-	0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65,
-	0x73, 0x73, 0x61, 0x67, 0x65, 0x42, 0x0a, 0x5a, 0x08, 0x2e, 0x3b, 0x6d, 0x65, 0x74, 0x72, 0x69,
-	0x63, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x63, 0x22, 0xfe, 0x02, 0x0a, 0x07, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x49, 0x12, 0x2e, 0x0a,
+	0x06, 0x66, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x16, 0x2e,
+	0x6d, 0x65, 0x74, 0x72, 0x69, 0x63, 0x2e, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x49, 0x2e, 0x46,
+	0x69, 0x6c, 0x74, 0x65, 0x72, 0x52, 0x06, 0x66, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x1a, 0xc2, 0x02,
+	0x0a, 0x06, 0x46, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x12, 0x3b, 0x0a, 0x08, 0x63, 0x68, 0x75, 0x6e,
+	0x6b, 0x69, 0x6e, 0x67, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1f, 0x2e, 0x6d, 0x65, 0x74,
+	0x72, 0x69, 0x63, 0x2e, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x49, 0x2e, 0x46, 0x69, 0x6c, 0x74,
+	0x65, 0x72, 0x2e, 0x43, 0x68, 0x75, 0x6e, 0x6b, 0x69, 0x6e, 0x67, 0x52, 0x08, 0x63, 0x68, 0x75,
+	0x6e, 0x6b, 0x69, 0x6e, 0x67, 0x12, 0x1a, 0x0a, 0x08, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x6f,
+	0x72, 0x18, 0x02, 0x20, 0x03, 0x28, 0x09, 0x52, 0x08, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x6f,
+	0x72, 0x12, 0x3b, 0x0a, 0x08, 0x70, 0x72, 0x6f, 0x70, 0x65, 0x72, 0x74, 0x79, 0x18, 0x03, 0x20,
+	0x03, 0x28, 0x0b, 0x32, 0x1f, 0x2e, 0x6d, 0x65, 0x74, 0x72, 0x69, 0x63, 0x2e, 0x53, 0x65, 0x61,
+	0x72, 0x63, 0x68, 0x49, 0x2e, 0x46, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x2e, 0x50, 0x72, 0x6f, 0x70,
+	0x65, 0x72, 0x74, 0x79, 0x52, 0x08, 0x70, 0x72, 0x6f, 0x70, 0x65, 0x72, 0x74, 0x79, 0x1a, 0x3e,
+	0x0a, 0x08, 0x43, 0x68, 0x75, 0x6e, 0x6b, 0x69, 0x6e, 0x67, 0x12, 0x18, 0x0a, 0x07, 0x70, 0x6f,
+	0x69, 0x6e, 0x74, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x70, 0x6f, 0x69,
+	0x6e, 0x74, 0x65, 0x72, 0x12, 0x18, 0x0a, 0x07, 0x70, 0x65, 0x72, 0x70, 0x61, 0x67, 0x65, 0x18,
+	0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x70, 0x65, 0x72, 0x70, 0x61, 0x67, 0x65, 0x1a, 0x62,
+	0x0a, 0x08, 0x50, 0x72, 0x6f, 0x70, 0x65, 0x72, 0x74, 0x79, 0x12, 0x1b, 0x0a, 0x09, 0x6d, 0x65,
+	0x74, 0x72, 0x69, 0x63, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6d,
+	0x65, 0x74, 0x72, 0x69, 0x63, 0x49, 0x64, 0x12, 0x1c, 0x0a, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x73,
+	0x74, 0x61, 0x6d, 0x70, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x74, 0x69, 0x6d, 0x65,
+	0x73, 0x74, 0x61, 0x6d, 0x70, 0x12, 0x1b, 0x0a, 0x09, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x5f,
+	0x69, 0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65,
+	0x49, 0x64, 0x22, 0xf1, 0x02, 0x0a, 0x07, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x4f, 0x12, 0x2e,
+	0x0a, 0x06, 0x66, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x16,
+	0x2e, 0x6d, 0x65, 0x74, 0x72, 0x69, 0x63, 0x2e, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x4f, 0x2e,
+	0x46, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x52, 0x06, 0x66, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x12, 0x2e,
+	0x0a, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x16,
+	0x2e, 0x6d, 0x65, 0x74, 0x72, 0x69, 0x63, 0x2e, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x4f, 0x2e,
+	0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x52, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x1a, 0x85,
+	0x01, 0x0a, 0x06, 0x46, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x12, 0x3b, 0x0a, 0x08, 0x63, 0x68, 0x75,
+	0x6e, 0x6b, 0x69, 0x6e, 0x67, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1f, 0x2e, 0x6d, 0x65,
+	0x74, 0x72, 0x69, 0x63, 0x2e, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x4f, 0x2e, 0x46, 0x69, 0x6c,
+	0x74, 0x65, 0x72, 0x2e, 0x43, 0x68, 0x75, 0x6e, 0x6b, 0x69, 0x6e, 0x67, 0x52, 0x08, 0x63, 0x68,
+	0x75, 0x6e, 0x6b, 0x69, 0x6e, 0x67, 0x1a, 0x3e, 0x0a, 0x08, 0x43, 0x68, 0x75, 0x6e, 0x6b, 0x69,
+	0x6e, 0x67, 0x12, 0x18, 0x0a, 0x07, 0x70, 0x6f, 0x69, 0x6e, 0x74, 0x65, 0x72, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x07, 0x70, 0x6f, 0x69, 0x6e, 0x74, 0x65, 0x72, 0x12, 0x18, 0x0a, 0x07,
+	0x70, 0x65, 0x72, 0x70, 0x61, 0x67, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x70,
+	0x65, 0x72, 0x70, 0x61, 0x67, 0x65, 0x1a, 0x7e, 0x0a, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74,
+	0x12, 0x1c, 0x0a, 0x09, 0x64, 0x61, 0x74, 0x61, 0x70, 0x6f, 0x69, 0x6e, 0x74, 0x18, 0x01, 0x20,
+	0x03, 0x28, 0x03, 0x52, 0x09, 0x64, 0x61, 0x74, 0x61, 0x70, 0x6f, 0x69, 0x6e, 0x74, 0x12, 0x1b,
+	0x0a, 0x09, 0x6d, 0x65, 0x74, 0x72, 0x69, 0x63, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x08, 0x6d, 0x65, 0x74, 0x72, 0x69, 0x63, 0x49, 0x64, 0x12, 0x1c, 0x0a, 0x09, 0x74,
+	0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09,
+	0x74, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x12, 0x1b, 0x0a, 0x09, 0x75, 0x70, 0x64,
+	0x61, 0x74, 0x65, 0x5f, 0x69, 0x64, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x75, 0x70,
+	0x64, 0x61, 0x74, 0x65, 0x49, 0x64, 0x42, 0x0a, 0x5a, 0x08, 0x2e, 0x3b, 0x6d, 0x65, 0x74, 0x72,
+	0x69, 0x63, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -144,17 +564,29 @@ func file_pbf_metric_search_proto_rawDescGZIP() []byte {
 	return file_pbf_metric_search_proto_rawDescData
 }
 
-var file_pbf_metric_search_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_pbf_metric_search_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_pbf_metric_search_proto_goTypes = []interface{}{
-	(*SearchI)(nil), // 0: metric.SearchI
-	(*SearchO)(nil), // 1: metric.SearchO
+	(*SearchI)(nil),                 // 0: metric.SearchI
+	(*SearchO)(nil),                 // 1: metric.SearchO
+	(*SearchI_Filter)(nil),          // 2: metric.SearchI.Filter
+	(*SearchI_Filter_Chunking)(nil), // 3: metric.SearchI.Filter.Chunking
+	(*SearchI_Filter_Property)(nil), // 4: metric.SearchI.Filter.Property
+	(*SearchO_Filter)(nil),          // 5: metric.SearchO.Filter
+	(*SearchO_Result)(nil),          // 6: metric.SearchO.Result
+	(*SearchO_Filter_Chunking)(nil), // 7: metric.SearchO.Filter.Chunking
 }
 var file_pbf_metric_search_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	2, // 0: metric.SearchI.filter:type_name -> metric.SearchI.Filter
+	5, // 1: metric.SearchO.filter:type_name -> metric.SearchO.Filter
+	6, // 2: metric.SearchO.result:type_name -> metric.SearchO.Result
+	3, // 3: metric.SearchI.Filter.chunking:type_name -> metric.SearchI.Filter.Chunking
+	4, // 4: metric.SearchI.Filter.property:type_name -> metric.SearchI.Filter.Property
+	7, // 5: metric.SearchO.Filter.chunking:type_name -> metric.SearchO.Filter.Chunking
+	6, // [6:6] is the sub-list for method output_type
+	6, // [6:6] is the sub-list for method input_type
+	6, // [6:6] is the sub-list for extension type_name
+	6, // [6:6] is the sub-list for extension extendee
+	0, // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_pbf_metric_search_proto_init() }
@@ -187,6 +619,78 @@ func file_pbf_metric_search_proto_init() {
 				return nil
 			}
 		}
+		file_pbf_metric_search_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SearchI_Filter); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_pbf_metric_search_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SearchI_Filter_Chunking); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_pbf_metric_search_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SearchI_Filter_Property); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_pbf_metric_search_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SearchO_Filter); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_pbf_metric_search_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SearchO_Result); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_pbf_metric_search_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SearchO_Filter_Chunking); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -194,7 +698,7 @@ func file_pbf_metric_search_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_pbf_metric_search_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
