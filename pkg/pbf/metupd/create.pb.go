@@ -28,10 +28,10 @@ const _ = proto.ProtoPackageIsVersion4
 // CreateI is the input for creating metric updates. That is persisting
 // datapoints and text which belong together in order to form a metric update.
 // Metrics and updates are separate resources. For lifecycle events like
-// creation and deletion we want to manage a single entity. That is to reduce
+// creating and deleting we want to manage a single entity. That is to reduce
 // operational complexity and thus minimize failure scenarious. Otherwise
 // creating metrics and updates separately would imply the technical challenge
-// to reliably associate each resource with the other.
+// of reliably associating each resource with the other after the fact.
 //
 // A timeline can have many metric updates. A timeline thus can have many
 // metrics and many updates each while any metric is only associated with a
@@ -61,7 +61,7 @@ type CreateI struct {
 	// used to visualize two graphs at the same time in the UI.
 	Yaxis []int64 `protobuf:"varint,1,rep,packed,name=yaxis,proto3" json:"yaxis,omitempty"`
 	// text contains the update part of the metric update. The string provided is
-	// the user's content expressing their update in written form.
+	// the user's natural language in written form.
 	Text string `protobuf:"bytes,2,opt,name=text,proto3" json:"text,omitempty"`
 	// timeline is the identifier used to associate the metric update with the
 	// specified timeline.
