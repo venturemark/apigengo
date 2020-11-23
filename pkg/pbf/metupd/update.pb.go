@@ -312,7 +312,7 @@ func (x *UpdateI_Obj_Property_Data) GetValue() []float64 {
 // UpdateO is the output for updating metric updates. The response will contain
 // object metadata to indicate which parts of the metric update got in fact
 // updated. The example below indicates that the metric and the update resource
-// got updated. That is, the data and the text.
+// got updated. That is, the data and the text changed.
 //
 //     {
 //         "obj": {
