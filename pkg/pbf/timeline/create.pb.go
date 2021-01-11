@@ -32,8 +32,8 @@ const _ = proto.ProtoPackageIsVersion4
 //     {
 //         "obj": {
 //             "metadata": {
-//                 "audience.venturemark.co/id": "aud-klc5p"
-//                 "organization.venturemark.co/id": "org-pl142"
+//                 "audience.venturemark.co/id": "aud-klc5p",
+//                 "organization.venturemark.co/id": "org-pl142",
 //                 "user.venturemark.co/id": "usr-al9qy"
 //             }
 //             "property": {
