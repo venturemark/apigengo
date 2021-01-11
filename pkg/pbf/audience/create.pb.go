@@ -30,14 +30,14 @@ const _ = proto.ProtoPackageIsVersion4
 //     {
 //         "obj": {
 //             "metadata": {
-//                 "organization.venturemark.co/id": "org-pl142",
-//                 "user.venturemark.co/id": "usr-al9qy"
-//             }
+//                 "organization.venturemark.co/id": "<id>",
+//                 "user.venturemark.co/id": "<id>"
+//             },
 //             "property": {
 //                 "name": "Employees",
 //                 "user": [
-//                     "usr-pl1d6",
-//                     "usr-403x9",
+//                     "<id>",
+//                     "<id>"
 //                 ]
 //             }
 //         }
@@ -253,7 +253,7 @@ func (x *CreateI_Obj_Property) GetUser() []string {
 //     {
 //         "obj": {
 //             "metadata": {
-//                 "audience.venturemark.co/id": "1606396471"
+//                 "audience.venturemark.co/id": "<id>"
 //             }
 //         }
 //     }

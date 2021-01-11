@@ -33,17 +33,17 @@ const _ = proto.ProtoPackageIsVersion4
 //     {
 //         "obj": {
 //             "metadata": {
-//                 "audience.venturemark.co/id": "1606396471",
-//                 "metric.venturemark.co/id": "1606400781",
-//                 "organization.venturemark.co/id": "org-pl142"
-//                 "timeline.venturemark.co/id": "1606396471",
-//                 "update.venturemark.co/id": "1606400781",
-//                 "user.venturemark.co/id": "usr-al9qy"
-//             }
+//                 "audience.venturemark.co/id": "<id>",
+//                 "metric.venturemark.co/id": "<id>",
+//                 "organization.venturemark.co/id": "<id>",
+//                 "timeline.venturemark.co/id": "<id>",
+//                 "update.venturemark.co/id": "<id>",
+//                 "user.venturemark.co/id": "<id>"
+//             },
 //             "property": {
 //                 "data": [
 //                     {
-//                         "space": "y"
+//                         "space": "y",
 //                         "value": [
 //                             32,
 //                             85
@@ -321,7 +321,7 @@ func (x *UpdateI_Obj_Property_Data) GetValue() []float64 {
 //     {
 //         "obj": {
 //             "metadata": {
-//                 "metric.venturemark.co/status": "updated"
+//                 "metric.venturemark.co/status": "updated",
 //                 "update.venturemark.co/status": "updated"
 //             }
 //     }
