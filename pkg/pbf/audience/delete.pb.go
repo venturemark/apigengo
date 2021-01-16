@@ -182,7 +182,7 @@ func (x *DeleteI_Obj) GetMetadata() map[string]string {
 //     {
 //         "obj": {
 //             "metadata": {
-//                 "audience.venturemark.co/status": "deleted",
+//                 "audience.venturemark.co/status": "deleted"
 //             }
 //         }
 //     }
