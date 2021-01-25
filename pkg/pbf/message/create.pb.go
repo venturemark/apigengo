@@ -31,7 +31,6 @@ const _ = proto.ProtoPackageIsVersion4
 //     {
 //         "obj": {
 //             "metadata": {
-//                 "audience.venturemark.co/id": "<id>",
 //                 "organization.venturemark.co/id": "<id>",
 //                 "timeline.venturemark.co/id": "<id>",
 //                 "update.venturemark.co/id": "<id>",
@@ -249,7 +248,7 @@ func (x *CreateI_Obj_Property) GetReid() string {
 
 // CreateO is the output for creating messages. Only the exact unix timestamp
 // of creation is returned with the object metadata when successfully creating
-// an audience.
+// a message.
 //
 //     {
 //         "obj": {
