@@ -37,12 +37,12 @@ const _ = proto.ProtoPackageIsVersion4
 //             "jsnpatch": [
 //                 {
 //                     "ope": "add",
-//                     "pat": "/user",
+//                     "pat": "/obj/property/user/-",
 //                     "val": "xh3b4sd"
 //                 },
 //                 {
 //                     "ope": "remove",
-//                     "pat": "/user",
+//                     "pat": "/obj/property/user/0",
 //                     "val": "marcoelli"
 //                 }
 //             ]
