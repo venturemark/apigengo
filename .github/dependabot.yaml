@@ -16,7 +16,7 @@ updates:
     schedule:
       interval: "daily"
       time: "04:00"
-    target-branch: "master"
+    target-branch: "main"
 
   - package-ecosystem: "gomod"
     directory: "/"
@@ -26,4 +26,4 @@ updates:
     schedule:
       interval: "daily"
       time: "04:00"
-    target-branch: "master"
+    target-branch: "main"
