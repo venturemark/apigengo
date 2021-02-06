@@ -39,10 +39,9 @@ const _ = proto.ProtoPackageIsVersion4
 //         "obj": [
 //             {
 //                 "metadata": {
-//                     "audience.venturemark.co/id": "aud-klc5p",
-//                     "organization.venturemark.co/id": "org-pl142",
-//                     "timeline.venturemark.co/id": "1606396471",
-//                     "user.venturemark.co/id": "usr-al9qy"
+//                     "organization.venturemark.co/id": "<id>",
+//                     "timeline.venturemark.co/id": "<id>",
+//                     "user.venturemark.co/id": "<id>"
 //                 }
 //             }
 //         ]
@@ -319,11 +318,10 @@ func (*SearchI_Obj_Property) Descriptor() ([]byte, []int) {
 //         "obj": [
 //             {
 //                 "metadata": {
-//                     "audience.venturemark.co/id": "aud-klc5p",
-//                     "organization.venturemark.co/id": "org-pl142",
-//                     "timeline.venturemark.co/id": "1606396471",
-//                     "update.venturemark.co/id": "1606400781",
-//                     "user.venturemark.co/id": "usr-al9qy"
+//                     "organization.venturemark.co/id": "<id>",
+//                     "timeline.venturemark.co/id": "<id>",
+//                     "update.venturemark.co/id": "<id>",
+//                     "user.venturemark.co/id": "<id>"
 //                 },
 //                 "property": {
 //                     "text": "Lorem ipsum ..."
@@ -550,8 +548,6 @@ type SearchO_Obj_Property struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// text contains the update part of the metric update. The string provided is
-	// the user's natural language in written form.
 	Text string `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
 }
 
