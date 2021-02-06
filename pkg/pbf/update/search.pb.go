@@ -548,8 +548,6 @@ type SearchO_Obj_Property struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// text contains the update part of the metric update. The string provided is
-	// the user's natural language in written form.
 	Text string `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
 }
 
