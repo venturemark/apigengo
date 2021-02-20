@@ -40,8 +40,7 @@ const _ = proto.ProtoPackageIsVersion4
 //             {
 //                 "metadata": {
 //                     "organization.venturemark.co/id": "<id>",
-//                     "timeline.venturemark.co/id": "<id>",
-//                     "user.venturemark.co/id": "<id>"
+//                     "timeline.venturemark.co/id": "<id>"
 //                 }
 //             }
 //         ]
@@ -320,8 +319,7 @@ func (*SearchI_Obj_Property) Descriptor() ([]byte, []int) {
 //                 "metadata": {
 //                     "organization.venturemark.co/id": "<id>",
 //                     "timeline.venturemark.co/id": "<id>",
-//                     "update.venturemark.co/id": "<id>",
-//                     "user.venturemark.co/id": "<id>"
+//                     "update.venturemark.co/id": "<id>"
 //                 },
 //                 "property": {
 //                     "text": "Lorem ipsum ..."

@@ -30,8 +30,7 @@ const _ = proto.ProtoPackageIsVersion4
 //     {
 //         "obj": {
 //             "metadata": {
-//                 "organization.venturemark.co/id": "<id>",
-//                 "user.venturemark.co/id": "<id>"
+//                 "organization.venturemark.co/id": "<id>"
 //             },
 //             "property": {
 //                 "name": "Employees",

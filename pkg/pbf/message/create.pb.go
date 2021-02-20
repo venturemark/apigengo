@@ -33,8 +33,7 @@ const _ = proto.ProtoPackageIsVersion4
 //             "metadata": {
 //                 "organization.venturemark.co/id": "<id>",
 //                 "timeline.venturemark.co/id": "<id>",
-//                 "update.venturemark.co/id": "<id>",
-//                 "user.venturemark.co/id": "<id>"
+//                 "update.venturemark.co/id": "<id>"
 //             },
 //             "property": {
 //                 "text": "This is a great idea! Love it. :hugging-face:",
