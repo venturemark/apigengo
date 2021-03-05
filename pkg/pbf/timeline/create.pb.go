@@ -32,7 +32,7 @@ const _ = proto.ProtoPackageIsVersion4
 //     {
 //         "obj": {
 //             "metadata": {
-//                 "organization.venturemark.co/id": "<id>"
+//                 "venture.venturemark.co/id": "<id>"
 //             },
 //             "property": {
 //                 "desc": "Lorem ipsum ...",
