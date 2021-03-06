@@ -31,13 +31,14 @@ const _ = proto.ProtoPackageIsVersion4
 //         "obj": [
 //             {
 //                 "metadata": {
+//                     "resource.venturemark.co/kind": "venture",
 //                     "role.venturemark.co/id": "<id>",
 //                     "venture.venturemark.co/id": "<id>"
 //                 },
 //                 "jsnpatch": [
 //                     {
 //                         "ope": "replace",
-//                         "pat": "/obj/property/kin",
+//                         "pat": "/obj/metadata/role.venturemark.co~1kind",
 //                         "val": "member"
 //                     }
 //                 ]
