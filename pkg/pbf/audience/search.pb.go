@@ -327,8 +327,7 @@ func (*SearchI_Obj_Property) Descriptor() ([]byte, []int) {
 //                         "<id>"
 //                     ]
 //                 }
-//             },
-//             ...
+//             }
 //         ]
 //     }
 //
