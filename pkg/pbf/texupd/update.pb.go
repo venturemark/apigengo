@@ -260,8 +260,7 @@ func (x *UpdateI_Obj_Jsnpatch) GetVal() string {
 
 // UpdateO is the output for updating text updates. The response will contain
 // object metadata to indicate the text update got in fact updated. The example
-// below indicates that the update resource got updated. That is, the text
-// changed.
+// below indicates that the update resource got updated.
 //
 //     {
 //         "obj": [

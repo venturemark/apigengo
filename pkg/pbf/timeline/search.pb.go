@@ -323,8 +323,7 @@ func (*SearchI_Obj_Property) Descriptor() ([]byte, []int) {
 //                     "name": "monthly recurring revenue",
 //                     "stat": "archived"
 //                 }
-//             },
-//             ...
+//             }
 //         ]
 //     }
 //

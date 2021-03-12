@@ -263,8 +263,7 @@ func (x *UpdateI_Obj_Jsnpatch) GetVal() string {
 
 // UpdateO is the output for updating audiences. The response will contain
 // object metadata to indicate if the audience got in fact updated. The example
-// below indicates that the audience got updated. That is, the list of users
-// changed.
+// below indicates that the audience got updated.
 //
 //     {
 //         "obj": [

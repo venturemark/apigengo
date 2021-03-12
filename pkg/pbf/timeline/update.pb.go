@@ -259,7 +259,7 @@ func (x *UpdateI_Obj_Jsnpatch) GetVal() string {
 
 // UpdateO is the output for updating timelines. The response will contain
 // object metadata to indicate if the timeline got in fact updated. The example
-// below indicates that the timeline got updated. That is, the name changed.
+// below indicates that the timeline got updated.
 //
 //     {
 //         "obj": [

@@ -324,8 +324,7 @@ func (*SearchI_Obj_Property) Descriptor() ([]byte, []int) {
 //                 "property": {
 //                     "text": "Lorem ipsum ..."
 //                 }
-//             },
-//             ...
+//             }
 //         ]
 //     }
 //

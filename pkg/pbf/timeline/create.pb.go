@@ -246,7 +246,7 @@ func (x *CreateI_Obj_Property) GetName() string {
 	return ""
 }
 
-// CreateO is the output for creating timeline. Only the exact unix timestamp of
+// CreateO is the output for creating timelines. Only the exact unix timestamp of
 // creation is returned with the object metadata when successfully creating a
 // timeline.
 //
