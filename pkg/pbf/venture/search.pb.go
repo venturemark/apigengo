@@ -25,14 +25,41 @@ const (
 // of the legacy proto package is being used.
 const _ = proto.ProtoPackageIsVersion4
 
-// SearchI is the input for searching ventures. Below is an example to fetch
-// all ventures associated with the specified user.
+// SearchI is the input for searching ventures. Below is an example to fetch a
+// particular venture by its ID.
 //
 //     {
 //         "api": {
 //             "chunking": {
 //                 "perpage": "100",
 //                 "pointer": "300"
+//             }
+//         },
+//         "obj": [
+//             {
+//                 "metadata": {
+//                     "venture.venturemark.co/id": "<id>"
+//                 }
+//             }
+//         }
+//     }
+//
+// Ventures can also be searched by user. Below is an example to fetch a all
+// ventures a user is part of. Note that the user ID must be provided with the
+// subject ID metadata.
+//
+//     {
+//         "api": {
+//             "chunking": {
+//                 "perpage": "100",
+//                 "pointer": "300"
+//             }
+//         },
+//         "obj": [
+//             {
+//                 "metadata": {
+//                     "subject.venturemark.co/id": "<id>"
+//                 }
 //             }
 //         }
 //     }
