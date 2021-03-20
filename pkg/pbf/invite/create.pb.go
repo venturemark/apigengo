@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.26.0
 // 	protoc        v3.15.6
-// source: pbf/texupd/create.proto
+// source: pbf/invite/create.proto
 
-package texupd
+package invite
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -20,19 +20,17 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// CreateI is the input for creating text updates. That is persisting text a
-// user adds to a timeline. Below is an example JSON representation showing an
-// emitted text update.
+// CreateI is the input for creating invites. Below is an example JSON
+// representation showing an emitted invite.
 //
 //     {
 //         "obj": [
 //             {
 //                 "metadata": {
-//                     "timeline.venturemark.co/id": "<id>",
 //                     "venture.venturemark.co/id": "<id>"
 //                 },
 //                 "property": {
-//                     "text": "Lorem ipsum ..."
+//                     "mail": "user@site.net",
 //                 }
 //             }
 //         ]
@@ -50,7 +48,7 @@ type CreateI struct {
 func (x *CreateI) Reset() {
 	*x = CreateI{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pbf_texupd_create_proto_msgTypes[0]
+		mi := &file_pbf_invite_create_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -63,7 +61,7 @@ func (x *CreateI) String() string {
 func (*CreateI) ProtoMessage() {}
 
 func (x *CreateI) ProtoReflect() protoreflect.Message {
-	mi := &file_pbf_texupd_create_proto_msgTypes[0]
+	mi := &file_pbf_invite_create_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -76,7 +74,7 @@ func (x *CreateI) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateI.ProtoReflect.Descriptor instead.
 func (*CreateI) Descriptor() ([]byte, []int) {
-	return file_pbf_texupd_create_proto_rawDescGZIP(), []int{0}
+	return file_pbf_invite_create_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *CreateI) GetApi() *CreateI_API {
@@ -102,7 +100,7 @@ type CreateI_API struct {
 func (x *CreateI_API) Reset() {
 	*x = CreateI_API{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pbf_texupd_create_proto_msgTypes[1]
+		mi := &file_pbf_invite_create_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -115,7 +113,7 @@ func (x *CreateI_API) String() string {
 func (*CreateI_API) ProtoMessage() {}
 
 func (x *CreateI_API) ProtoReflect() protoreflect.Message {
-	mi := &file_pbf_texupd_create_proto_msgTypes[1]
+	mi := &file_pbf_invite_create_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -128,7 +126,7 @@ func (x *CreateI_API) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateI_API.ProtoReflect.Descriptor instead.
 func (*CreateI_API) Descriptor() ([]byte, []int) {
-	return file_pbf_texupd_create_proto_rawDescGZIP(), []int{1}
+	return file_pbf_invite_create_proto_rawDescGZIP(), []int{1}
 }
 
 type CreateI_Obj struct {
@@ -143,7 +141,7 @@ type CreateI_Obj struct {
 func (x *CreateI_Obj) Reset() {
 	*x = CreateI_Obj{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pbf_texupd_create_proto_msgTypes[2]
+		mi := &file_pbf_invite_create_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -156,7 +154,7 @@ func (x *CreateI_Obj) String() string {
 func (*CreateI_Obj) ProtoMessage() {}
 
 func (x *CreateI_Obj) ProtoReflect() protoreflect.Message {
-	mi := &file_pbf_texupd_create_proto_msgTypes[2]
+	mi := &file_pbf_invite_create_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -169,7 +167,7 @@ func (x *CreateI_Obj) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateI_Obj.ProtoReflect.Descriptor instead.
 func (*CreateI_Obj) Descriptor() ([]byte, []int) {
-	return file_pbf_texupd_create_proto_rawDescGZIP(), []int{2}
+	return file_pbf_invite_create_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *CreateI_Obj) GetMetadata() map[string]string {
@@ -191,13 +189,13 @@ type CreateI_Obj_Property struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Text string `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
+	Mail string `protobuf:"bytes,1,opt,name=mail,proto3" json:"mail,omitempty"`
 }
 
 func (x *CreateI_Obj_Property) Reset() {
 	*x = CreateI_Obj_Property{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pbf_texupd_create_proto_msgTypes[3]
+		mi := &file_pbf_invite_create_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -210,7 +208,7 @@ func (x *CreateI_Obj_Property) String() string {
 func (*CreateI_Obj_Property) ProtoMessage() {}
 
 func (x *CreateI_Obj_Property) ProtoReflect() protoreflect.Message {
-	mi := &file_pbf_texupd_create_proto_msgTypes[3]
+	mi := &file_pbf_invite_create_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -223,25 +221,25 @@ func (x *CreateI_Obj_Property) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateI_Obj_Property.ProtoReflect.Descriptor instead.
 func (*CreateI_Obj_Property) Descriptor() ([]byte, []int) {
-	return file_pbf_texupd_create_proto_rawDescGZIP(), []int{3}
+	return file_pbf_invite_create_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *CreateI_Obj_Property) GetText() string {
+func (x *CreateI_Obj_Property) GetMail() string {
 	if x != nil {
-		return x.Text
+		return x.Mail
 	}
 	return ""
 }
 
-// CreateO is the output for creating text updates. Only the exact unix
-// timestamp of creation is returned with the object metadata when successfully
-// creating a text update.
+// CreateO is the output for creating invites. Only the exact unix timestamp of
+// creation is returned with the object metadata when successfully creating an
+// invite.
 //
 //     {
 //         "obj": [
 //             {
 //                 "metadata": {
-//                     "update.venturemark.co/id": "<id>"
+//                     "invite.venturemark.co/id": "<id>"
 //                 }
 //             }
 //         ]
@@ -259,7 +257,7 @@ type CreateO struct {
 func (x *CreateO) Reset() {
 	*x = CreateO{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pbf_texupd_create_proto_msgTypes[4]
+		mi := &file_pbf_invite_create_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -272,7 +270,7 @@ func (x *CreateO) String() string {
 func (*CreateO) ProtoMessage() {}
 
 func (x *CreateO) ProtoReflect() protoreflect.Message {
-	mi := &file_pbf_texupd_create_proto_msgTypes[4]
+	mi := &file_pbf_invite_create_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -285,7 +283,7 @@ func (x *CreateO) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateO.ProtoReflect.Descriptor instead.
 func (*CreateO) Descriptor() ([]byte, []int) {
-	return file_pbf_texupd_create_proto_rawDescGZIP(), []int{4}
+	return file_pbf_invite_create_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *CreateO) GetApi() *CreateO_API {
@@ -311,7 +309,7 @@ type CreateO_API struct {
 func (x *CreateO_API) Reset() {
 	*x = CreateO_API{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pbf_texupd_create_proto_msgTypes[5]
+		mi := &file_pbf_invite_create_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -324,7 +322,7 @@ func (x *CreateO_API) String() string {
 func (*CreateO_API) ProtoMessage() {}
 
 func (x *CreateO_API) ProtoReflect() protoreflect.Message {
-	mi := &file_pbf_texupd_create_proto_msgTypes[5]
+	mi := &file_pbf_invite_create_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -337,7 +335,7 @@ func (x *CreateO_API) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateO_API.ProtoReflect.Descriptor instead.
 func (*CreateO_API) Descriptor() ([]byte, []int) {
-	return file_pbf_texupd_create_proto_rawDescGZIP(), []int{5}
+	return file_pbf_invite_create_proto_rawDescGZIP(), []int{5}
 }
 
 type CreateO_Obj struct {
@@ -351,7 +349,7 @@ type CreateO_Obj struct {
 func (x *CreateO_Obj) Reset() {
 	*x = CreateO_Obj{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_pbf_texupd_create_proto_msgTypes[6]
+		mi := &file_pbf_invite_create_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -364,7 +362,7 @@ func (x *CreateO_Obj) String() string {
 func (*CreateO_Obj) ProtoMessage() {}
 
 func (x *CreateO_Obj) ProtoReflect() protoreflect.Message {
-	mi := &file_pbf_texupd_create_proto_msgTypes[6]
+	mi := &file_pbf_invite_create_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -377,7 +375,7 @@ func (x *CreateO_Obj) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateO_Obj.ProtoReflect.Descriptor instead.
 func (*CreateO_Obj) Descriptor() ([]byte, []int) {
-	return file_pbf_texupd_create_proto_rawDescGZIP(), []int{6}
+	return file_pbf_invite_create_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *CreateO_Obj) GetMetadata() map[string]string {
@@ -387,84 +385,84 @@ func (x *CreateO_Obj) GetMetadata() map[string]string {
 	return nil
 }
 
-var File_pbf_texupd_create_proto protoreflect.FileDescriptor
+var File_pbf_invite_create_proto protoreflect.FileDescriptor
 
-var file_pbf_texupd_create_proto_rawDesc = []byte{
-	0x0a, 0x17, 0x70, 0x62, 0x66, 0x2f, 0x74, 0x65, 0x78, 0x75, 0x70, 0x64, 0x2f, 0x63, 0x72, 0x65,
-	0x61, 0x74, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x06, 0x74, 0x65, 0x78, 0x75, 0x70,
-	0x64, 0x22, 0x57, 0x0a, 0x07, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x49, 0x12, 0x25, 0x0a, 0x03,
-	0x61, 0x70, 0x69, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x13, 0x2e, 0x74, 0x65, 0x78, 0x75,
-	0x70, 0x64, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x49, 0x5f, 0x41, 0x50, 0x49, 0x52, 0x03,
+var file_pbf_invite_create_proto_rawDesc = []byte{
+	0x0a, 0x17, 0x70, 0x62, 0x66, 0x2f, 0x69, 0x6e, 0x76, 0x69, 0x74, 0x65, 0x2f, 0x63, 0x72, 0x65,
+	0x61, 0x74, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x06, 0x69, 0x6e, 0x76, 0x69, 0x74,
+	0x65, 0x22, 0x57, 0x0a, 0x07, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x49, 0x12, 0x25, 0x0a, 0x03,
+	0x61, 0x70, 0x69, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x13, 0x2e, 0x69, 0x6e, 0x76, 0x69,
+	0x74, 0x65, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x49, 0x5f, 0x41, 0x50, 0x49, 0x52, 0x03,
 	0x61, 0x70, 0x69, 0x12, 0x25, 0x0a, 0x03, 0x6f, 0x62, 0x6a, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b,
-	0x32, 0x13, 0x2e, 0x74, 0x65, 0x78, 0x75, 0x70, 0x64, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65,
+	0x32, 0x13, 0x2e, 0x69, 0x6e, 0x76, 0x69, 0x74, 0x65, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65,
 	0x49, 0x5f, 0x4f, 0x62, 0x6a, 0x52, 0x03, 0x6f, 0x62, 0x6a, 0x22, 0x0d, 0x0a, 0x0b, 0x43, 0x72,
 	0x65, 0x61, 0x74, 0x65, 0x49, 0x5f, 0x41, 0x50, 0x49, 0x22, 0xc3, 0x01, 0x0a, 0x0b, 0x43, 0x72,
 	0x65, 0x61, 0x74, 0x65, 0x49, 0x5f, 0x4f, 0x62, 0x6a, 0x12, 0x3d, 0x0a, 0x08, 0x6d, 0x65, 0x74,
-	0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x21, 0x2e, 0x74, 0x65,
-	0x78, 0x75, 0x70, 0x64, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x49, 0x5f, 0x4f, 0x62, 0x6a,
+	0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x21, 0x2e, 0x69, 0x6e,
+	0x76, 0x69, 0x74, 0x65, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x49, 0x5f, 0x4f, 0x62, 0x6a,
 	0x2e, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x45, 0x6e, 0x74, 0x72, 0x79, 0x52, 0x08,
 	0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x38, 0x0a, 0x08, 0x70, 0x72, 0x6f, 0x70,
-	0x65, 0x72, 0x74, 0x79, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1c, 0x2e, 0x74, 0x65, 0x78,
-	0x75, 0x70, 0x64, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x49, 0x5f, 0x4f, 0x62, 0x6a, 0x5f,
+	0x65, 0x72, 0x74, 0x79, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1c, 0x2e, 0x69, 0x6e, 0x76,
+	0x69, 0x74, 0x65, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x49, 0x5f, 0x4f, 0x62, 0x6a, 0x5f,
 	0x50, 0x72, 0x6f, 0x70, 0x65, 0x72, 0x74, 0x79, 0x52, 0x08, 0x70, 0x72, 0x6f, 0x70, 0x65, 0x72,
 	0x74, 0x79, 0x1a, 0x3b, 0x0a, 0x0d, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x45, 0x6e,
 	0x74, 0x72, 0x79, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
 	0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x02,
 	0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x3a, 0x02, 0x38, 0x01, 0x22,
 	0x2a, 0x0a, 0x14, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x49, 0x5f, 0x4f, 0x62, 0x6a, 0x5f, 0x50,
-	0x72, 0x6f, 0x70, 0x65, 0x72, 0x74, 0x79, 0x12, 0x12, 0x0a, 0x04, 0x74, 0x65, 0x78, 0x74, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x74, 0x65, 0x78, 0x74, 0x22, 0x57, 0x0a, 0x07, 0x43,
+	0x72, 0x6f, 0x70, 0x65, 0x72, 0x74, 0x79, 0x12, 0x12, 0x0a, 0x04, 0x6d, 0x61, 0x69, 0x6c, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6d, 0x61, 0x69, 0x6c, 0x22, 0x57, 0x0a, 0x07, 0x43,
 	0x72, 0x65, 0x61, 0x74, 0x65, 0x4f, 0x12, 0x25, 0x0a, 0x03, 0x61, 0x70, 0x69, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x0b, 0x32, 0x13, 0x2e, 0x74, 0x65, 0x78, 0x75, 0x70, 0x64, 0x2e, 0x43, 0x72, 0x65,
+	0x01, 0x28, 0x0b, 0x32, 0x13, 0x2e, 0x69, 0x6e, 0x76, 0x69, 0x74, 0x65, 0x2e, 0x43, 0x72, 0x65,
 	0x61, 0x74, 0x65, 0x4f, 0x5f, 0x41, 0x50, 0x49, 0x52, 0x03, 0x61, 0x70, 0x69, 0x12, 0x25, 0x0a,
-	0x03, 0x6f, 0x62, 0x6a, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x13, 0x2e, 0x74, 0x65, 0x78,
-	0x75, 0x70, 0x64, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x4f, 0x5f, 0x4f, 0x62, 0x6a, 0x52,
+	0x03, 0x6f, 0x62, 0x6a, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x13, 0x2e, 0x69, 0x6e, 0x76,
+	0x69, 0x74, 0x65, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x4f, 0x5f, 0x4f, 0x62, 0x6a, 0x52,
 	0x03, 0x6f, 0x62, 0x6a, 0x22, 0x0d, 0x0a, 0x0b, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x4f, 0x5f,
 	0x41, 0x50, 0x49, 0x22, 0x89, 0x01, 0x0a, 0x0b, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x4f, 0x5f,
 	0x4f, 0x62, 0x6a, 0x12, 0x3d, 0x0a, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18,
-	0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x21, 0x2e, 0x74, 0x65, 0x78, 0x75, 0x70, 0x64, 0x2e, 0x43,
+	0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x21, 0x2e, 0x69, 0x6e, 0x76, 0x69, 0x74, 0x65, 0x2e, 0x43,
 	0x72, 0x65, 0x61, 0x74, 0x65, 0x4f, 0x5f, 0x4f, 0x62, 0x6a, 0x2e, 0x4d, 0x65, 0x74, 0x61, 0x64,
 	0x61, 0x74, 0x61, 0x45, 0x6e, 0x74, 0x72, 0x79, 0x52, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61,
 	0x74, 0x61, 0x1a, 0x3b, 0x0a, 0x0d, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x45, 0x6e,
 	0x74, 0x72, 0x79, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
 	0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x02,
 	0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x3a, 0x02, 0x38, 0x01, 0x42,
-	0x0b, 0x5a, 0x09, 0x2e, 0x2f, 0x3b, 0x74, 0x65, 0x78, 0x75, 0x70, 0x64, 0x62, 0x06, 0x70, 0x72,
+	0x0b, 0x5a, 0x09, 0x2e, 0x2f, 0x3b, 0x69, 0x6e, 0x76, 0x69, 0x74, 0x65, 0x62, 0x06, 0x70, 0x72,
 	0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
-	file_pbf_texupd_create_proto_rawDescOnce sync.Once
-	file_pbf_texupd_create_proto_rawDescData = file_pbf_texupd_create_proto_rawDesc
+	file_pbf_invite_create_proto_rawDescOnce sync.Once
+	file_pbf_invite_create_proto_rawDescData = file_pbf_invite_create_proto_rawDesc
 )
 
-func file_pbf_texupd_create_proto_rawDescGZIP() []byte {
-	file_pbf_texupd_create_proto_rawDescOnce.Do(func() {
-		file_pbf_texupd_create_proto_rawDescData = protoimpl.X.CompressGZIP(file_pbf_texupd_create_proto_rawDescData)
+func file_pbf_invite_create_proto_rawDescGZIP() []byte {
+	file_pbf_invite_create_proto_rawDescOnce.Do(func() {
+		file_pbf_invite_create_proto_rawDescData = protoimpl.X.CompressGZIP(file_pbf_invite_create_proto_rawDescData)
 	})
-	return file_pbf_texupd_create_proto_rawDescData
+	return file_pbf_invite_create_proto_rawDescData
 }
 
-var file_pbf_texupd_create_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
-var file_pbf_texupd_create_proto_goTypes = []interface{}{
-	(*CreateI)(nil),              // 0: texupd.CreateI
-	(*CreateI_API)(nil),          // 1: texupd.CreateI_API
-	(*CreateI_Obj)(nil),          // 2: texupd.CreateI_Obj
-	(*CreateI_Obj_Property)(nil), // 3: texupd.CreateI_Obj_Property
-	(*CreateO)(nil),              // 4: texupd.CreateO
-	(*CreateO_API)(nil),          // 5: texupd.CreateO_API
-	(*CreateO_Obj)(nil),          // 6: texupd.CreateO_Obj
-	nil,                          // 7: texupd.CreateI_Obj.MetadataEntry
-	nil,                          // 8: texupd.CreateO_Obj.MetadataEntry
+var file_pbf_invite_create_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
+var file_pbf_invite_create_proto_goTypes = []interface{}{
+	(*CreateI)(nil),              // 0: invite.CreateI
+	(*CreateI_API)(nil),          // 1: invite.CreateI_API
+	(*CreateI_Obj)(nil),          // 2: invite.CreateI_Obj
+	(*CreateI_Obj_Property)(nil), // 3: invite.CreateI_Obj_Property
+	(*CreateO)(nil),              // 4: invite.CreateO
+	(*CreateO_API)(nil),          // 5: invite.CreateO_API
+	(*CreateO_Obj)(nil),          // 6: invite.CreateO_Obj
+	nil,                          // 7: invite.CreateI_Obj.MetadataEntry
+	nil,                          // 8: invite.CreateO_Obj.MetadataEntry
 }
-var file_pbf_texupd_create_proto_depIdxs = []int32{
-	1, // 0: texupd.CreateI.api:type_name -> texupd.CreateI_API
-	2, // 1: texupd.CreateI.obj:type_name -> texupd.CreateI_Obj
-	7, // 2: texupd.CreateI_Obj.metadata:type_name -> texupd.CreateI_Obj.MetadataEntry
-	3, // 3: texupd.CreateI_Obj.property:type_name -> texupd.CreateI_Obj_Property
-	5, // 4: texupd.CreateO.api:type_name -> texupd.CreateO_API
-	6, // 5: texupd.CreateO.obj:type_name -> texupd.CreateO_Obj
-	8, // 6: texupd.CreateO_Obj.metadata:type_name -> texupd.CreateO_Obj.MetadataEntry
+var file_pbf_invite_create_proto_depIdxs = []int32{
+	1, // 0: invite.CreateI.api:type_name -> invite.CreateI_API
+	2, // 1: invite.CreateI.obj:type_name -> invite.CreateI_Obj
+	7, // 2: invite.CreateI_Obj.metadata:type_name -> invite.CreateI_Obj.MetadataEntry
+	3, // 3: invite.CreateI_Obj.property:type_name -> invite.CreateI_Obj_Property
+	5, // 4: invite.CreateO.api:type_name -> invite.CreateO_API
+	6, // 5: invite.CreateO.obj:type_name -> invite.CreateO_Obj
+	8, // 6: invite.CreateO_Obj.metadata:type_name -> invite.CreateO_Obj.MetadataEntry
 	7, // [7:7] is the sub-list for method output_type
 	7, // [7:7] is the sub-list for method input_type
 	7, // [7:7] is the sub-list for extension type_name
@@ -472,13 +470,13 @@ var file_pbf_texupd_create_proto_depIdxs = []int32{
 	0, // [0:7] is the sub-list for field type_name
 }
 
-func init() { file_pbf_texupd_create_proto_init() }
-func file_pbf_texupd_create_proto_init() {
-	if File_pbf_texupd_create_proto != nil {
+func init() { file_pbf_invite_create_proto_init() }
+func file_pbf_invite_create_proto_init() {
+	if File_pbf_invite_create_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_pbf_texupd_create_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_pbf_invite_create_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateI); i {
 			case 0:
 				return &v.state
@@ -490,7 +488,7 @@ func file_pbf_texupd_create_proto_init() {
 				return nil
 			}
 		}
-		file_pbf_texupd_create_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_pbf_invite_create_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateI_API); i {
 			case 0:
 				return &v.state
@@ -502,7 +500,7 @@ func file_pbf_texupd_create_proto_init() {
 				return nil
 			}
 		}
-		file_pbf_texupd_create_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_pbf_invite_create_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateI_Obj); i {
 			case 0:
 				return &v.state
@@ -514,7 +512,7 @@ func file_pbf_texupd_create_proto_init() {
 				return nil
 			}
 		}
-		file_pbf_texupd_create_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_pbf_invite_create_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateI_Obj_Property); i {
 			case 0:
 				return &v.state
@@ -526,7 +524,7 @@ func file_pbf_texupd_create_proto_init() {
 				return nil
 			}
 		}
-		file_pbf_texupd_create_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_pbf_invite_create_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateO); i {
 			case 0:
 				return &v.state
@@ -538,7 +536,7 @@ func file_pbf_texupd_create_proto_init() {
 				return nil
 			}
 		}
-		file_pbf_texupd_create_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_pbf_invite_create_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateO_API); i {
 			case 0:
 				return &v.state
@@ -550,7 +548,7 @@ func file_pbf_texupd_create_proto_init() {
 				return nil
 			}
 		}
-		file_pbf_texupd_create_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_pbf_invite_create_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateO_Obj); i {
 			case 0:
 				return &v.state
@@ -567,18 +565,18 @@ func file_pbf_texupd_create_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_pbf_texupd_create_proto_rawDesc,
+			RawDescriptor: file_pbf_invite_create_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   9,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_pbf_texupd_create_proto_goTypes,
-		DependencyIndexes: file_pbf_texupd_create_proto_depIdxs,
-		MessageInfos:      file_pbf_texupd_create_proto_msgTypes,
+		GoTypes:           file_pbf_invite_create_proto_goTypes,
+		DependencyIndexes: file_pbf_invite_create_proto_depIdxs,
+		MessageInfos:      file_pbf_invite_create_proto_msgTypes,
 	}.Build()
-	File_pbf_texupd_create_proto = out.File
-	file_pbf_texupd_create_proto_rawDesc = nil
-	file_pbf_texupd_create_proto_goTypes = nil
-	file_pbf_texupd_create_proto_depIdxs = nil
+	File_pbf_invite_create_proto = out.File
+	file_pbf_invite_create_proto_rawDesc = nil
+	file_pbf_invite_create_proto_goTypes = nil
+	file_pbf_invite_create_proto_depIdxs = nil
 }
