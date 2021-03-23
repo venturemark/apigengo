@@ -330,6 +330,7 @@ func (*SearchI_Obj_Property) Descriptor() ([]byte, []int) {
 //         "obj": [
 //             {
 //                 "metadata": {
+//                     "invite.venturemark.co/code": "<code>",
 //                     "invite.venturemark.co/id": "<id>",
 //                     "venture.venturemark.co/id": "<id>"
 //                 },

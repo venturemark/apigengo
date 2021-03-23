@@ -30,7 +30,7 @@ const (
 //                     "venture.venturemark.co/id": "<id>"
 //                 },
 //                 "property": {
-//                     "mail": "user@site.net",
+//                     "mail": "user@site.net"
 //                 }
 //             }
 //         ]
@@ -239,6 +239,7 @@ func (x *CreateI_Obj_Property) GetMail() string {
 //         "obj": [
 //             {
 //                 "metadata": {
+//                     "invite.venturemark.co/code": "<code>",
 //                     "invite.venturemark.co/id": "<id>"
 //                 }
 //             }

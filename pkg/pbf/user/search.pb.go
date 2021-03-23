@@ -317,7 +317,7 @@ func (*SearchI_Obj_Property) Descriptor() ([]byte, []int) {
 //                     "name": "Arvind Krishna",
 //                     "prof": [
 //                         {
-//                             "desc": "CEO"
+//                             "desc": "CEO",
 //                             "vent": "IBM"
 //                         }
 //                     ]
