@@ -30,6 +30,8 @@ const (
 //                 "metadata": {
 //                     "invite.venturemark.co/code": "<code>",
 //                     "invite.venturemark.co/id": "<id>",
+//                     "resource.venturemark.co/kind": "venture",
+//                     "role.venturemark.co/kind": "member",
 //                     "venture.venturemark.co/id": "<id>"
 //                 },
 //                 "jsnpatch": [
