@@ -541,8 +541,9 @@ type SearchO_Obj_Property struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Head string `protobuf:"bytes,1,opt,name=head,proto3" json:"head,omitempty"`
-	Text string `protobuf:"bytes,2,opt,name=text,proto3" json:"text,omitempty"`
+	Attachments []*SearchO_Obj_Property_Link `protobuf:"bytes,1,rep,name=attachments,proto3" json:"attachments,omitempty"`
+	Head        string                       `protobuf:"bytes,2,opt,name=head,proto3" json:"head,omitempty"`
+	Text        string                       `protobuf:"bytes,3,opt,name=text,proto3" json:"text,omitempty"`
 }
 
 func (x *SearchO_Obj_Property) Reset() {
@@ -577,6 +578,13 @@ func (*SearchO_Obj_Property) Descriptor() ([]byte, []int) {
 	return file_pbf_update_search_proto_rawDescGZIP(), []int{9}
 }
 
+func (x *SearchO_Obj_Property) GetAttachments() []*SearchO_Obj_Property_Link {
+	if x != nil {
+		return x.Attachments
+	}
+	return nil
+}
+
 func (x *SearchO_Obj_Property) GetHead() string {
 	if x != nil {
 		return x.Head
@@ -587,6 +595,61 @@ func (x *SearchO_Obj_Property) GetHead() string {
 func (x *SearchO_Obj_Property) GetText() string {
 	if x != nil {
 		return x.Text
+	}
+	return ""
+}
+
+type SearchO_Obj_Property_Link struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Addr string `protobuf:"bytes,1,opt,name=addr,proto3" json:"addr,omitempty"`
+	Type string `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty"`
+}
+
+func (x *SearchO_Obj_Property_Link) Reset() {
+	*x = SearchO_Obj_Property_Link{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_pbf_update_search_proto_msgTypes[10]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SearchO_Obj_Property_Link) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SearchO_Obj_Property_Link) ProtoMessage() {}
+
+func (x *SearchO_Obj_Property_Link) ProtoReflect() protoreflect.Message {
+	mi := &file_pbf_update_search_proto_msgTypes[10]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SearchO_Obj_Property_Link.ProtoReflect.Descriptor instead.
+func (*SearchO_Obj_Property_Link) Descriptor() ([]byte, []int) {
+	return file_pbf_update_search_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *SearchO_Obj_Property_Link) GetAddr() string {
+	if x != nil {
+		return x.Addr
+	}
+	return ""
+}
+
+func (x *SearchO_Obj_Property_Link) GetType() string {
+	if x != nil {
+		return x.Type
 	}
 	return ""
 }
@@ -653,13 +716,21 @@ var file_pbf_update_search_proto_rawDesc = []byte{
 	0x1a, 0x3b, 0x0a, 0x0d, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x45, 0x6e, 0x74, 0x72,
 	0x79, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03,
 	0x6b, 0x65, 0x79, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x02, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x3a, 0x02, 0x38, 0x01, 0x22, 0x3e, 0x0a,
-	0x14, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x4f, 0x5f, 0x4f, 0x62, 0x6a, 0x5f, 0x50, 0x72, 0x6f,
-	0x70, 0x65, 0x72, 0x74, 0x79, 0x12, 0x12, 0x0a, 0x04, 0x68, 0x65, 0x61, 0x64, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x04, 0x68, 0x65, 0x61, 0x64, 0x12, 0x12, 0x0a, 0x04, 0x74, 0x65, 0x78,
-	0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x74, 0x65, 0x78, 0x74, 0x42, 0x0b, 0x5a,
-	0x09, 0x2e, 0x2f, 0x3b, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x33,
+	0x28, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x3a, 0x02, 0x38, 0x01, 0x22, 0x83, 0x01,
+	0x0a, 0x14, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x4f, 0x5f, 0x4f, 0x62, 0x6a, 0x5f, 0x50, 0x72,
+	0x6f, 0x70, 0x65, 0x72, 0x74, 0x79, 0x12, 0x43, 0x0a, 0x0b, 0x61, 0x74, 0x74, 0x61, 0x63, 0x68,
+	0x6d, 0x65, 0x6e, 0x74, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x21, 0x2e, 0x75, 0x70,
+	0x64, 0x61, 0x74, 0x65, 0x2e, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x4f, 0x5f, 0x4f, 0x62, 0x6a,
+	0x5f, 0x50, 0x72, 0x6f, 0x70, 0x65, 0x72, 0x74, 0x79, 0x5f, 0x4c, 0x69, 0x6e, 0x6b, 0x52, 0x0b,
+	0x61, 0x74, 0x74, 0x61, 0x63, 0x68, 0x6d, 0x65, 0x6e, 0x74, 0x73, 0x12, 0x12, 0x0a, 0x04, 0x68,
+	0x65, 0x61, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x68, 0x65, 0x61, 0x64, 0x12,
+	0x12, 0x0a, 0x04, 0x74, 0x65, 0x78, 0x74, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x74,
+	0x65, 0x78, 0x74, 0x22, 0x43, 0x0a, 0x19, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x4f, 0x5f, 0x4f,
+	0x62, 0x6a, 0x5f, 0x50, 0x72, 0x6f, 0x70, 0x65, 0x72, 0x74, 0x79, 0x5f, 0x4c, 0x69, 0x6e, 0x6b,
+	0x12, 0x12, 0x0a, 0x04, 0x61, 0x64, 0x64, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04,
+	0x61, 0x64, 0x64, 0x72, 0x12, 0x12, 0x0a, 0x04, 0x74, 0x79, 0x70, 0x65, 0x18, 0x02, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x04, 0x74, 0x79, 0x70, 0x65, 0x42, 0x0b, 0x5a, 0x09, 0x2e, 0x2f, 0x3b, 0x75,
+	0x70, 0x64, 0x61, 0x74, 0x65, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -674,37 +745,39 @@ func file_pbf_update_search_proto_rawDescGZIP() []byte {
 	return file_pbf_update_search_proto_rawDescData
 }
 
-var file_pbf_update_search_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
+var file_pbf_update_search_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
 var file_pbf_update_search_proto_goTypes = []interface{}{
-	(*SearchI)(nil),              // 0: update.SearchI
-	(*SearchI_API)(nil),          // 1: update.SearchI_API
-	(*SearchI_API_Chunking)(nil), // 2: update.SearchI_API_Chunking
-	(*SearchI_Obj)(nil),          // 3: update.SearchI_Obj
-	(*SearchI_Obj_Property)(nil), // 4: update.SearchI_Obj_Property
-	(*SearchO)(nil),              // 5: update.SearchO
-	(*SearchO_API)(nil),          // 6: update.SearchO_API
-	(*SearchO_API_Chunking)(nil), // 7: update.SearchO_API_Chunking
-	(*SearchO_Obj)(nil),          // 8: update.SearchO_Obj
-	(*SearchO_Obj_Property)(nil), // 9: update.SearchO_Obj_Property
-	nil,                          // 10: update.SearchI_Obj.MetadataEntry
-	nil,                          // 11: update.SearchO_Obj.MetadataEntry
+	(*SearchI)(nil),                   // 0: update.SearchI
+	(*SearchI_API)(nil),               // 1: update.SearchI_API
+	(*SearchI_API_Chunking)(nil),      // 2: update.SearchI_API_Chunking
+	(*SearchI_Obj)(nil),               // 3: update.SearchI_Obj
+	(*SearchI_Obj_Property)(nil),      // 4: update.SearchI_Obj_Property
+	(*SearchO)(nil),                   // 5: update.SearchO
+	(*SearchO_API)(nil),               // 6: update.SearchO_API
+	(*SearchO_API_Chunking)(nil),      // 7: update.SearchO_API_Chunking
+	(*SearchO_Obj)(nil),               // 8: update.SearchO_Obj
+	(*SearchO_Obj_Property)(nil),      // 9: update.SearchO_Obj_Property
+	(*SearchO_Obj_Property_Link)(nil), // 10: update.SearchO_Obj_Property_Link
+	nil,                               // 11: update.SearchI_Obj.MetadataEntry
+	nil,                               // 12: update.SearchO_Obj.MetadataEntry
 }
 var file_pbf_update_search_proto_depIdxs = []int32{
 	1,  // 0: update.SearchI.api:type_name -> update.SearchI_API
 	3,  // 1: update.SearchI.obj:type_name -> update.SearchI_Obj
 	2,  // 2: update.SearchI_API.chunking:type_name -> update.SearchI_API_Chunking
-	10, // 3: update.SearchI_Obj.metadata:type_name -> update.SearchI_Obj.MetadataEntry
+	11, // 3: update.SearchI_Obj.metadata:type_name -> update.SearchI_Obj.MetadataEntry
 	4,  // 4: update.SearchI_Obj.property:type_name -> update.SearchI_Obj_Property
 	6,  // 5: update.SearchO.api:type_name -> update.SearchO_API
 	8,  // 6: update.SearchO.obj:type_name -> update.SearchO_Obj
 	7,  // 7: update.SearchO_API.chunking:type_name -> update.SearchO_API_Chunking
-	11, // 8: update.SearchO_Obj.metadata:type_name -> update.SearchO_Obj.MetadataEntry
+	12, // 8: update.SearchO_Obj.metadata:type_name -> update.SearchO_Obj.MetadataEntry
 	9,  // 9: update.SearchO_Obj.property:type_name -> update.SearchO_Obj_Property
-	10, // [10:10] is the sub-list for method output_type
-	10, // [10:10] is the sub-list for method input_type
-	10, // [10:10] is the sub-list for extension type_name
-	10, // [10:10] is the sub-list for extension extendee
-	0,  // [0:10] is the sub-list for field type_name
+	10, // 10: update.SearchO_Obj_Property.attachments:type_name -> update.SearchO_Obj_Property_Link
+	11, // [11:11] is the sub-list for method output_type
+	11, // [11:11] is the sub-list for method input_type
+	11, // [11:11] is the sub-list for extension type_name
+	11, // [11:11] is the sub-list for extension extendee
+	0,  // [0:11] is the sub-list for field type_name
 }
 
 func init() { file_pbf_update_search_proto_init() }
@@ -833,6 +906,18 @@ func file_pbf_update_search_proto_init() {
 				return nil
 			}
 		}
+		file_pbf_update_search_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SearchO_Obj_Property_Link); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -840,7 +925,7 @@ func file_pbf_update_search_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_pbf_update_search_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   12,
+			NumMessages:   13,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
